@@ -54,6 +54,12 @@ async def root():
     return {"message": "Cost Tracker API", "status": "running"}
 
 
+@app.get("/health/liveness")
+async def health_check():
+    """Health check endpoint"""
+    return {"status": "OK"}
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
